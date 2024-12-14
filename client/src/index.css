@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color-light: #f3f4f6;
+  --text-color-light: #111827;
+  --input-bg-light: #ffffff;
+  --input-border-light: #d1d5db;
+  --message-bot-bg-light: #e0f2fe;
+  --message-user-bg-light: #dcfce7;
+
+  --bg-color-dark: #1f2937;
+  --text-color-dark: #f9fafb;
+  --input-bg-dark: #374151;
+  --input-border-dark: #4b5563;
+  --message-bot-bg-dark: #1e40af;
+  --message-user-bg-dark: #064e3b;
+}
+
+[data-theme="light"] {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+[data-theme="dark"] {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+[data-theme="light"] textarea {
+  background-color: var(--input-bg-light);
+  border-color: var(--input-border-light);
+  color: var(--text-color-light);
+}
+
+[data-theme="dark"] textarea {
+  background-color: var(--input-bg-dark);
+  border-color: var(--input-border-dark);
+  color: var(--text-color-dark);
+}
+
+[data-theme="light"] .message-bot {
+  background-color: var(--message-bot-bg-light);
+}
+
+[data-theme="dark"] .message-bot {
+  background-color: var(--message-bot-bg-dark);
+}
+
+[data-theme="light"] .message-user {
+  background-color: var(--message-user-bg-light);
+}
+
+[data-theme="dark"] .message-user {
+  background-color: var(--message-user-bg-dark);
+}
+
+[data-theme="light"] .intro-text {
+  color: var(--text-color-light);
+}
+
+[data-theme="dark"] .intro-text {
+  color: var(--text-color-dark);
+}
