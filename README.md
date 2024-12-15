@@ -43,7 +43,7 @@ npm install
 
 ## Running the Project
 
-**The client and the server must run simoustanly**
+**The client and the server must run simultaneously**
 
 ### Server Setup
 
