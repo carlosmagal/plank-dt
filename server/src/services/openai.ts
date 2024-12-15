@@ -22,7 +22,6 @@ const sendMessageToOpenAI = async (prompt: string) => {
 
     return response?.choices?.at(0)?.message;
   } catch (error: any) {
-    console.log(error.status);
     openaiErrorStatusHandler(error);
   }
 };

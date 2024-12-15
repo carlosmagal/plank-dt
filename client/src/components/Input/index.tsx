@@ -3,17 +3,21 @@ import { useRef, useState } from "react";
 
 interface Props {
   onSendMessage: (e: string) => Promise<void>;
+  disableSubmit: boolean;
 }
 
-const Input = ({ onSendMessage }: Props) => {
+const Input = ({ onSendMessage, disableSubmit }: Props) => {
   const textbox = useRef<any>(null);
   const [input, setInput] = useState("");
 
   const handleSend = () => {
-    if (input.trim()) {
+    if (input.trim() && !disableSubmit) {
       onSendMessage(input);
       setInput("");
       textbox.current.style.height = "66px";
+      document
+        .getElementById("messages-end")
+        ?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -38,7 +42,8 @@ const Input = ({ onSendMessage }: Props) => {
       />
       <button
         onClick={handleSend}
-        className="ml-4 px-4 py-2 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-900"
+        disabled={disableSubmit}
+        className="ml-4 px-4 py-2 bg-blue-900 text-white font-semibold rounded-lg hover:bg-blue-900 disabled:bg-gray-500"
       >
         Submit
       </button>

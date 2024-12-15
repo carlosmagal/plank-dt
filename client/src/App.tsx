@@ -5,31 +5,52 @@ import Header from "./components/Header";
 import Chat from "./components/Chat";
 import Input from "./components/Input";
 
+import ChatApiServiceFactory from "./service";
+import { ChatResponse } from "./service/types";
+
+import "react-loading-skeleton/dist/skeleton.css";
+
+const api = ChatApiServiceFactory.createChatApiService();
+
 function App() {
   const [theme, setTheme] = useState("light");
-  const [loading] = useState(false);
-  const [messages, setMessages] = useState<any>([]);
+  const [loading, setLoading] = useState(false);
+  const [messages, setMessages] = useState<ChatResponse[]>([]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   const handleSendMessage = async (text: string) => {
-    console.log(text);
-    setMessages((prevMessages: any) => [...prevMessages]);
+    try {
+      setLoading(true);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { content: text, refusal: "", role: "user" },
+      ]);
+      const response = await api.sendMessage(text);
 
-    setTimeout(() => {
-      document
-        .getElementById("messages-end")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+      setMessages((prevMessages) => [...prevMessages, response]);
+    } catch (error: any) {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          content: error.response.data,
+          refusal: "",
+          role: "assistant",
+          type: "error",
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className={`flex flex-col h-screen`} data-theme={theme}>
+    <div className="flex flex-col h-screen" data-theme={theme}>
       <Header toggleTheme={toggleTheme} theme={theme} />
-      <Chat messages={messages} loading={loading} />
-      <Input onSendMessage={handleSendMessage} />
+      <Chat messages={messages} loading={loading} theme={theme} />
+      <Input onSendMessage={handleSendMessage} disableSubmit={loading} />
     </div>
   );
 }

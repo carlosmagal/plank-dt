@@ -9,7 +9,7 @@ const errorHandler = (
   const statusCode = (err?.cause as number) || 500;
   const message = err.message || "An unexpected error occurred.";
 
-  res.status(statusCode).json({ error: message });
+  res.status(statusCode).json(message);
 };
 
 const openaiErrorStatusHandler = (error: { status: any }) => {

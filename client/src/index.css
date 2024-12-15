@@ -9,6 +9,8 @@
   --input-border-light: #d1d5db;
   --message-bot-bg-light: #e0f2fe;
   --message-user-bg-light: #dcfce7;
+  --box-shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
 
   --bg-color-dark: #1f2937;
   --text-color-dark: #f9fafb;
@@ -16,6 +18,10 @@
   --input-border-dark: #4b5563;
   --message-bot-bg-dark: #1e40af;
   --message-user-bg-dark: #064e3b;
+  --box-shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+    0 2px 4px -2px rgba(0, 0, 0, 0.6);
+  --bg-color-scroll: rgb(54, 54, 54);
+
 }
 
 [data-theme="light"] {
@@ -62,4 +68,22 @@
 
 [data-theme="dark"] .intro-text {
   color: var(--text-color-dark);
+}
+
+[data-theme="light"] .chat-box {
+  box-shadow: var(--box-shadow-light);
+}
+
+[data-theme="dark"] .chat-box {
+  box-shadow: var(--box-shadow-dark);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-color-scroll);
+  border-radius: 10px;
 }

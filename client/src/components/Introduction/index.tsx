@@ -1,6 +1,6 @@
 const Introduction = () => {
   return (
-    <div className="max-w-sm w-full rounded-lg message-bot">
+    <div className="max-w-sm w-full rounded-lg message-bot chat-box">
       {/* <img
         src="https://media.licdn.com/dms/image/v2/C4D03AQEuzW6V1edSeQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1656682372273?e=1739404800&v=beta&t=Wvk_2mvwZi1v5eicDgVBUXMqw3cgNht67qH2hwb_AKY"
         alt=""
