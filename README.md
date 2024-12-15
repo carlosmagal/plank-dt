@@ -43,7 +43,7 @@ npm install
 
 ## Running the Project
 
-**The client and the server must run simultaneously**
+**The client and the server must run simultaneously.**
 
 ### Server Setup
 
@@ -71,6 +71,12 @@ Navigate to the `client` directory and start it:
    ```
 
 By default, the app will be available at [http://localhost:5173](http://localhost:5173).
+
+### Features I would add to the project
+- **Chat History:** Store past conversations and let users access them.
+- **File Upload:** Allow users to input code through files.
+- **Chat Content Download:** Enable users to download the content of a given chat as a file.
+
 
 Enjoy! =)
 
