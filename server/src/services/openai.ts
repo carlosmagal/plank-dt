@@ -17,9 +17,6 @@ const sendMessageToOpenAI = async (prompt: string) => {
       messages: [{ role: "user", content }],
     });
 
-    console.log(response);
-    console.log(response?.choices?.at(0)?.message);
-
     return response?.choices?.at(0)?.message;
   } catch (error: any) {
     openaiErrorStatusHandler(error);
