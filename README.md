@@ -63,6 +63,12 @@ By default, the server will run on [http://localhost:3000](http://localhost:3000
 
 ### Client Setup
 
+Set up environment variables by creating a `.env` file in the `client` directory, the example below is set to be the default url where the server will run, there's no need to change it:
+ ```env
+ VITE_API_URL="http://localhost:3000/api"
+ ```
+
+
 Navigate to the `client` directory and start it:
 
    ```bash
